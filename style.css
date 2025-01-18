@@ -57,21 +57,31 @@ input[type="text"], input[type="email"], select {
     border-radius: 4px;
 }
 
-input[type="submit"] {
-    align-self: flex-end;
+.button-container {
+    display: flex; /* Aktiviert Flexbox */
+    justify-content: flex-end; /* Positioniert die Buttons nach rechts */
+    gap: 10px; /* Fügt einen Abstand zwischen den Buttons hinzu */
+}
+
+input[type="submit"], button[type="submit"] {
     background-color: #db4734;
     color: white;
-    padding: 20px 15px;
+    padding: 10px 30px;
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    margin-top: 20px;
 }
 
-
-input[type="submit"]:hover {
+input[type="submit"]:hover, button[type="submit"]:hover {
     background-color: #e0b00f;
 }
+
+.button-group {
+    display: flex; /* Aktiviert Flexbox für den Button-Container */
+    justify-content: flex-end; /* Positioniert die Buttons nach rechts */
+    gap: 10px; /* Fügt Abstand zwischen den Buttons hinzu */
+}
+
 
 /* Tabellen */
 table {

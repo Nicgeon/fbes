@@ -36,12 +36,12 @@
                 ?>
             </select>
             <br><br><br>
-            <input type="submit" name="submit" size="5">
+            <input type="submit" name="Kundendaten" value="Weiter" size="5">
         </from>
     </div>
     <footer class="footer">
         <form action="./Login.php" method="post" class="login-form">
-            <input type="submit" value="Busfahrer Login" class="login-button">
+            <input type="submit" value="Busfahrer Login" name="Login" class="login-button">
         </form>
     </footer>
 </body>

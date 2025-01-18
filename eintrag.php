@@ -49,16 +49,19 @@
         echo "<h1>Keine Linie Gefunden</h1><br><br>Aktuell gibt es keine Verbindung von ".$von." bis ".$bis."<br>wir bitten um entschuldigung<br><br>";
     }
 
-    #Zurücksetzen Button
 
-    echo "<form action='./zurücknehmen.php' method='post'>
-            <input type='hidden' name='von' value='" . htmlspecialchars($von) . "'>
+    # Zurücksetzen Button
+    echo "<form action='./zurücknehmen.php' method='post' class='button-container'>
+        <input type='hidden' name='von' value='" . htmlspecialchars($von) . "'>
+        <div class='button-group'>
+            <button type='submit' name='zurück' formaction='./Kundenformular.php'>Fertig</button>
             <input type='submit' name='zurücksetzen' value='Zurücknehmen'>
-            </form>";
-
-
-
-
+        </div>
+    </form>";
     ?>
+    
+    
+
+
 </body>
 </html>
