@@ -14,7 +14,7 @@
         $stmt = $PDO->prepare($sql);
         $stmt->execute();
         
-        echo "<h1>Zurückgesetzt für Station: " . htmlspecialchars($von)."</h1>";
+        echo "<center><h1>Zurückgesetzt für Station: " . htmlspecialchars($von)."</h1></center>";
     ?>
 </body>
 </html>
