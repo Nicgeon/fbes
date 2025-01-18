@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
@@ -20,7 +21,11 @@
         $stmt = $PDO->prepare($sql);
         $stmt->execute();
         
-        echo "<center><h1>Zurückgesetzt für Station: " . htmlspecialchars($von)."</h1></center>";
+        echo "<center><h1>Zurückgesetzt für Station: <br>" . $von."</h1></center>";
     ?>
+
+    <form action="./Kundenformular.php" method="get">
+        <input type="submit" value="Zurück zur Startseite">
+    </form>
 </body>
 </html>
