@@ -1,17 +1,28 @@
-/* Grundlegende Stilisierung für den gesamten Body */
-body {
-    font-family: Arial, sans-serif;
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Lato, sans-serif;
     line-height: 1.6;
-    color: #333;
-    max-width: 800px;
+    color: #ffffff;
+    background-color: #000000;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
     margin: 0 auto;
+}
+
+.content {
+    flex: 1 0 auto;
     padding: 20px;
-    background-color: #f4f4f4;
 }
 
 /* Überschriften */
 h1, h2, h3 {
-    color: #2c3e50;
+    color: #ffffff;
 }
 
 h1 {
@@ -28,22 +39,14 @@ h3 {
     font-size: 1.5em;
 }
 
-/* Links */
-a {
-    color: #3498db;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
 /* Formulare */
 form {
-    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    background-color: #050031;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.219);
 }
 
 input[type="text"], input[type="email"], select {
@@ -55,16 +58,19 @@ input[type="text"], input[type="email"], select {
 }
 
 input[type="submit"] {
-    background-color: #3498db;
+    align-self: flex-end;
+    background-color: #db4734;
     color: white;
-    padding: 10px 20px;
+    padding: 20px 15px;
     border: none;
-    border-radius: 4px;
+    border-radius: 20px;
     cursor: pointer;
+    margin-top: 20px;
 }
 
+
 input[type="submit"]:hover {
-    background-color: #2980b9;
+    background-color: #e0b00f;
 }
 
 /* Tabellen */
@@ -85,8 +91,32 @@ th {
     color: white;
 }
 
+/* Footer */
+.footer {
+    flex-shrink: 0;
+    background-color: #050031;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.219);
+}
+
+.login-form {
+    text-align: right;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+}
+
+.login-form input[type="submit"] {
+    background-color: #db4734;
+}
+
+.login-form input[type="submit"]:hover {
+    background-color: #e0b00f;
+}
+
 /* Responsive Design */
-@media (max-width: 600px) {
+@media (max-width: 1000px) {
     body {
         padding: 10px;
     }
