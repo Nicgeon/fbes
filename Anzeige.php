@@ -11,14 +11,24 @@
 
     <table>
     <?php 
-        include Login.php;
-        echo $ID;
+        $ID = include_once($Linie);
 
         $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'fbes', '1234');
 
-        $sql = "SELECT * FROM verbindung WHERE ID_Linie = $ID";
+        $sql = "SELECT stationen.Name, verbindungen.Wartet, verbindungen.Uhrzeit
+                FROM linie 
+                INNER JOIN verbindungen 
+                ON linie.ID_Linie = verbindungen.ID_linie
+                INNER JOIN stationen
+                ON stationen.ID_Station = verbindungen.ID_Station
+                WHERE linie.ID_Linie = $ID
+                ORDER BY verbindungen.Uhrzeit ASC";
 
         $stmt = $PDO->prepare($sql);
+
+        foreach($PDO->query($sql) as $row) {
+            echo "<tr><td>".$row['Name']."<br>".$row['Uhrzeit']."</td><td>".$row['Wartet']."</td></tr>";
+        }
 
     ?>
     </table>
