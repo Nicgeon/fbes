@@ -22,7 +22,7 @@
             $Linie = $_GET['Linie'];
             $dauer = 20;
 
-            $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'root', '');
+            $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'fbes', '1234');
             $sql = "SELECT fahrer.Vorname
                     FROM fahrer
                     WHERE fahrer.ID_Fahrer = '$ID'";

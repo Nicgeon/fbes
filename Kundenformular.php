@@ -14,7 +14,7 @@
         <form action="./eintrag.php" method="get">
             <select id="Stationen" name="von" >
                 <?php
-                    $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'root', '');
+                    $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'fbes', '1234');
                     $sql = "SELECT stationen.NAME
                             FROM stationen";
                     
@@ -26,7 +26,7 @@
             bis
             <select id="Stationen" name="bis">
                 <?php
-                    $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'root', '');
+                    $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'fbes', '1234');
                     $sql = "SELECT stationen.NAME
                             FROM stationen";
                     

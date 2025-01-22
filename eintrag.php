@@ -11,7 +11,7 @@
     $von = $_GET['von'];
     $bis = $_GET['bis'];
 
-    $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'root', '');
+    $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'fbes', '1234');
 
     $sql_1 = "SELECT v.ID_linie
                 FROM stationen AS s

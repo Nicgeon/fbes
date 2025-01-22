@@ -9,7 +9,7 @@
 <body>
     <?php
 
-        $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'root', '');
+        $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'fbes', '1234');   
         $von = $_POST['von'];
         $sql = "UPDATE verbindungen AS v
         SET Wartet = Wartet - 1

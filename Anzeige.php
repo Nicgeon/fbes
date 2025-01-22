@@ -14,7 +14,7 @@
         include Login.php;
         echo $ID;
 
-        $PDO = new PDO('mysql:host=localhost;dbname:fbes', 'root', '');
+        $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'fbes', '1234');
 
         $sql = "SELECT * FROM verbindung WHERE ID_Linie = $ID";
 
