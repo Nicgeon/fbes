@@ -7,6 +7,20 @@
     <title>Fahrtanzeige</title>
 </head>
 <body>
-    
+    <center><h1>Fahrtanzeige</h1></center>
+
+    <table>
+    <?php 
+        include Login.php;
+        echo $ID;
+
+        $PDO = new PDO('mysql:host=localhost;dbname:fbes', 'root', '');
+
+        $sql = "SELECT * FROM verbindung WHERE ID_Linie = $ID";
+
+        $stmt = $PDO->prepare($sql);
+
+    ?>
+    </table>
 </body>
 </html>
