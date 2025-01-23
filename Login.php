@@ -18,11 +18,13 @@
 
     <?php 
         if(isset($_GET['submit'])) {
+            session_start();
+            $_SESSION = array();
             $ID = $_GET['ID'];
             $Linie = $_GET['Linie'];
             $dauer = 20;
 
-            $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'fbes', '1234');
+            $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'root', '');
             $sql = "SELECT fahrer.Vorname
                     FROM fahrer
                     WHERE fahrer.ID_Fahrer = '$ID'";
@@ -41,21 +43,10 @@
                 $Linie_1 = $row['Bezeichnung'];
             }
 
-            if (!is_null($ID_1) && !is_null($Linie_1)) {
-                echo '<!DOCTYPE html>
-                      <html lang="de">
-                      <head>
-                          <meta charset="UTF-8">
-                          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                          <title>Weiterleitung</title>
-                          <script>
-                              setTimeout(function() {
-                                  window.location.href = "./Anzeige.php";}, 3000); // 3 Sekunden warten
-                          </script>
-                      </head>
-                      <body>';
-                echo "<center>Ihre Logindaten sind korrekt, Sie werden gleich weitergeleitet.</center>";
-                echo '</body></html>';
+            if (!is_null(value: $ID_1) && !is_null($Linie_1)) {
+                $_SESSION['Login'] = true;
+                $_SESSION['Linie'] = $Linie;
+                header("Location: Anzeige.php");
                 exit(); // Wichtig: Beenden Sie das Skript hier
             }
             elseif(is_null($ID_1) or is_null($Linie_1)){

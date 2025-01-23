@@ -11,9 +11,14 @@
 
     <table>
     <?php 
-        $ID = include_once($Linie);
+        session_start();
+        if(!isset($_SESSION['Login']) || !$_SESSION['Login'] == true) {
+            header("Location: Login.php");
+            die;
+        }
+        $Linie = $_SESSION['Linie'];
 
-        $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'fbes', '1234');
+        $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'root', '');
 
         $sql = "SELECT stationen.Name, verbindungen.Wartet, verbindungen.Uhrzeit
                 FROM linie 
@@ -21,7 +26,7 @@
                 ON linie.ID_Linie = verbindungen.ID_linie
                 INNER JOIN stationen
                 ON stationen.ID_Station = verbindungen.ID_Station
-                WHERE linie.ID_Linie = $ID
+                WHERE linie.ID_Linie = $Linie
                 ORDER BY verbindungen.Uhrzeit ASC";
 
         $stmt = $PDO->prepare($sql);
