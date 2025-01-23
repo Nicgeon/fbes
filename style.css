@@ -50,7 +50,6 @@ form {
 }
 
 input[type="text"], input[type="email"], select {
-    width: 100%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ddd;
@@ -125,13 +124,7 @@ th {
     background-color: #e0b00f;
 }
 
-/* Responsive Design */
-@media (max-width: 1000px) {
-    body {
-        padding: 10px;
-    }
-    
-    h1 {
-        font-size: 2em;
-    }
+
+#lol {
+    font-weight: bold;
 }
