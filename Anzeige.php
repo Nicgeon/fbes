@@ -12,39 +12,21 @@
     </div>
     <div>
     <table id="myTable">
-    <script>
-            const table = document.getElementById('myTable');
-            let currentHighlight = 0;
-
-            window.addEventListener('wheel', (event) => {
-            const rows = table.getElementsByTagName('tr');
-            
-            // Entferne die Hervorhebung von der aktuellen Zeile
-            if (rows[currentHighlight]) {
-                rows[currentHighlight].classList.remove('highlight');
-            }
-            
-            // Ändere den Index basierend auf der Scrollrichtung
-            if (event.deltaY > 0) {
-                currentHighlight = (currentHighlight + 1) % rows.length;
-            } else {
-                currentHighlight = (currentHighlight - 1 + rows.length) % rows.length;
-            }
-            
-            // Füge die Hervorhebung zur neuen Zeile hinzu
-            rows[currentHighlight].classList.add('highlight');
-            location.hash = "#" + currentHighlight
-            
-            // Verhindere das normale Scrollverhalten
-            event.preventDefault();
-            });
-    </script>
     <?php 
         session_start();
         if(!isset($_SESSION['Login']) || !$_SESSION['Login'] == true) {
             header("Location: Login.php");
             die;
         }
+        if (!isset($_SESSION['mark'])) {
+            $_SESSION['mark'] = 0;
+        }
+        
+        if (isset($_GET['Weiter'])) {
+            $_SESSION['mark']++;
+        }
+        
+        $mark = $_SESSION['mark'];
         $Linie = $_SESSION['Linie'];
 
         $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'fbes', '1234');
@@ -62,12 +44,19 @@
         $i = 0;
         foreach($PDO->query($sql) as $row) {
             $Zeit = date("H:i:s", strtotime($row['Uhrzeit']));
-            echo "<tr id='$i'><td class=><b>".$row['Name']."</b><br>".$Zeit."</td><td id='Wartet'>".$row['Wartet']."</td></tr>";
+            if($i == $mark) {
+                echo "<tr id='$i' class='highlight'>";
+            }
+            else {
+                echo "<tr id='$i'>";
+            }
+            echo "<td><b>".$row['Name']."</b><br>".$Zeit."</td><td id='Wartet'>".$row['Wartet']."</td></tr>";
+            if ($i == $mark) {
+                echo "</table>";
+                echo "<div><form><input type='submit' value='Nächste Station' name='Weiter' class='highlight'></form></div>";
+                echo "<table id='myTable'>";
+            }
             $i++;
-        }
-        $currentHighlight = $_GET["uid"]; //puts the uid varialbe into $somevar
-        if($i == $currentHighlight) {
-            echo "<form><input type='submit' value='Weiter' name='weiter'/></form>";
         }
     ?>
     </div>

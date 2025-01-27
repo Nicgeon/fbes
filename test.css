@@ -7,21 +7,19 @@ html, body {
     color: #ffffff;
     background-color: #000000;
 }
-  tr.highlight {
-    text-align: left;
-    color: #db4734;
-    font-size: calc(1vw + 1vh);
-    background-color: #050031;
-    padding: 20px 20px;
-    border-radius: 50px;
-    border-bottom: #ffffff;
-    display:flexbox;
-  }
 
-  .container {
-    width: 100%;
-  }
- 
+tr.highlight {
+  position:fixed;
+  top: 10px;
+  text-align: left;
+  color: #db4734;
+  font-size: 3em;
+  background-color: #050031;
+  padding: 20px 20px;
+  border-radius: 50px;
+  border-bottom: #ffffff;
+}
+
   #myTable {
     border: 10px;
     width: 100%;
@@ -50,5 +48,6 @@ html, body {
     border: none;
     border-radius: 20px;
     cursor: pointer;
+    text-align: right;
   }
   
