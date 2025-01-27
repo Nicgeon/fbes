@@ -11,7 +11,7 @@
     $von = $_GET['von'];
     $bis = $_GET['bis'];
 
-    $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'root', '');
+    $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'fbes', '1234');
 
     $sql_1 = "SELECT v.ID_linie
                 FROM stationen AS s
@@ -24,6 +24,7 @@
                 ON v.ID_Station = s.ID_Station
                 WHERE s.NAME = '$bis'";
     
+    $l_von = 0;
     foreach($PDO->query($sql_1) as $row){
         $l_von = $row['ID_linie'];
     }
@@ -43,7 +44,7 @@
     if($l_bis == $l_von) {
         $stmt = $PDO->prepare($sql);
         $stmt->execute();
-        echo "<h1>Ihre Eingabe wurde übermittelt</h1><br><br>Sie fahren von <u>".$von."</u> bis <u>".$bis."</u> mit der linie <b><u>".$l_von."</u></b><br><br>";
+        echo "<nobr><h1>Ihre Eingabe wurde übermittelt</h1><br><br>Sie fahren von <u>".$von."</u> bis <u>".$bis."</u> mit der linie <b><u>".$l_von."</u></nobr></b><br><br>";
     }
     else {
         echo "<h1>Keine Linie Gefunden</h1><br><br>Aktuell gibt es keine Verbindung von ".$von." bis ".$bis."<br>wir bitten um entschuldigung<br><br>";
