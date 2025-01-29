@@ -9,8 +9,8 @@ html, body {
 }
 
 tr.highlight {
-  position:fixed;
-  top: 10px;
+  /*position:fixed;
+  top: 10px;*/
   text-align: left;
   color: #db4734;
   font-size: 3em;
@@ -34,11 +34,14 @@ tr.highlight {
   }
 
   .footer {
+    position: fixed;
+    bottom: 0;
     flex-shrink: 0;
     background-color: #050031;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.219);
+    width: 100%;
   }
 
   input[type="submit"], button[type="submit"] {

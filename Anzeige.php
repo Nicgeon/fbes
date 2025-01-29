@@ -37,27 +37,28 @@
                 ON linie.ID_Linie = verbindungen.ID_linie
                 INNER JOIN stationen
                 ON stationen.ID_Station = verbindungen.ID_Station
-                WHERE linie.ID_Linie = $Linie
                 ORDER BY verbindungen.Uhrzeit DESC";
-
         $stmt = $PDO->prepare($sql);
         $i = 0;
         foreach($PDO->query($sql) as $row) {
-            $Zeit = date("H:i:s", strtotime($row['Uhrzeit']));
+format: $Zeit = date("H:i:s", strtotime($row['Uhrzeit']));
             if($i == $mark) {
                 echo "<tr id='$i' class='highlight'>";
             }
             else {
                 echo "<tr id='$i'>";
             }
-            echo "<td><b>".$row['Name']."</b><br>".$Zeit."</td><td id='Wartet'>".$row['Wartet']."</td></tr>";
-            if ($i == $mark) {
-                echo "</table>";
-                echo "<div><form><input type='submit' value='Nächste Station' name='Weiter' class='highlight'></form></div>";
-                echo "<table id='myTable'>";
+            if ($i >= $mark) {
+                echo "<td><b>".$row['Name']."</b><br>".$Zeit."</td><td id='Wartet'>".$row['Wartet']."</td></tr>";
+                if ($i == $mark) {
+                    echo "</table>";
+                    echo "<div><form><input type='submit' value='Nächste Station' name='Weiter' class='highlight'></form></div>";
+                    echo "<table id='myTable'>";
+                }
             }
             $i++;
         }
+        
     ?>
     </div>
     </table>
