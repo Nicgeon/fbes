@@ -102,18 +102,23 @@ th {
 
 /* Footer */
 .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
     flex-shrink: 0;
     background-color: #050031;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.219);
-}
+    width: 100%;
+  }
 
 .login-form {
-    text-align: right;
-    background-color: transparent;
-    box-shadow: none;
-    padding: 0;
+    align-items:start !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-left: 1em;
 }
 
 .login-form input[type="submit"] {

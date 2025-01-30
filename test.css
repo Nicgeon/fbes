@@ -18,52 +18,44 @@ tr.highlight {
   padding: 20px 20px;
 }
 
-#weiter {
-  background-color: #db4734;
-  position: fixed;
-  right: 10px;
-  text-align: left;
+.navi {
+  font-size: 4em !important; 
+  border-radius: 60px !important;
+  padding: 10px 30px !important;
+  margin-right: 100px !important;
+  margin-left: 100px !important;
 }
 
-#zurück {
-  background-color: #db4734;
+#myTable {
+  border: 10px;
+  width: 100%;
+  font-size: 1.5em;
+}
+
+#Wartet {
+  width: 100px;
+  color: azure;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer {
   position: fixed;
-  left: 10px;
+  bottom: 0;
+  flex-shrink: 0;
+  background-color: #050031;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.219);
+  width: 100%;
+}
+
+input[type="submit"], button[type="submit"] {
+  background-color: #db4734;
+  color: white;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
   text-align: right;
 }
-
-
-  #myTable {
-    border: 10px;
-    width: 100%;
-    font-size: 1.5em;
-  }
-
-  #Wartet {
-    width: 100px;
-    color: azure;
-    padding: 20px;
-    text-align: center;
-  }
-
-  .footer {
-    position: fixed;
-    bottom: 0;
-    flex-shrink: 0;
-    background-color: #050031;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.219);
-    width: 100%;
-  }
-
-  input[type="submit"], button[type="submit"] {
-    background-color: #db4734;
-    color: white;
-    padding: 10px 30px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    text-align: right;
-  }
-  
