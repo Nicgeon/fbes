@@ -46,9 +46,10 @@
                     ON linie.ID_Linie = verbindungen.ID_linie
                     INNER JOIN stationen
                     ON stationen.ID_Station = verbindungen.ID_Station
-                    ORDER BY verbindungen.Uhrzeit DESC";
+                    ORDER BY verbindungen.Uhrzeit ASC";
             $PDO->prepare($sql);
             $i = 0;
+            $j = 0;
 
             foreach($PDO->query($sql) as $row) {
                 $letzter = array_key_last($row);
@@ -61,8 +62,17 @@
                 }
                 if ($i >= $mark) {
                     echo "<td><b>".$row['Name']."</b><br>".$Zeit."</td><td id='Wartet'>".$row['Wartet']."</td></tr>";
+                    $j++;
                 }
                 $i++;
+            }
+
+            if($j < 1) {
+                echo "<tr><td><h1>Du haben fertig</h1</td></tr>";
+                echo '<form action="./Login.php" method="post" class="login-form">
+                        <Button type="submit" name="Login" formaction="./Login.php">Zurück zum Login</Button>
+                    </form>';
+                    die();
             }
 
             
@@ -70,7 +80,6 @@
         </table>
     </div>
     <div style="height: 10vh;"></div>
-
     <footer class="footer">
         <form>
         <center>
