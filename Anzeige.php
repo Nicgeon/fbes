@@ -25,6 +25,10 @@
         if (isset($_GET['Weiter'])) {
             $_SESSION['mark']++;
         }
+
+        if (isset($_GET['zurück'])) {
+            $_SESSION['mark']--;
+        }
         
         $mark = $_SESSION['mark'];
         $Linie = $_SESSION['Linie'];
@@ -38,10 +42,12 @@
                 INNER JOIN stationen
                 ON stationen.ID_Station = verbindungen.ID_Station
                 ORDER BY verbindungen.Uhrzeit DESC";
-        $stmt = $PDO->prepare($sql);
+        $PDO->prepare($sql);
         $i = 0;
+
         foreach($PDO->query($sql) as $row) {
-format: $Zeit = date("H:i:s", strtotime($row['Uhrzeit']));
+            $letzter = array_key_last($row);
+            $Zeit = date("H:i:s", strtotime($row['Uhrzeit']));
             if($i == $mark) {
                 echo "<tr id='$i' class='highlight'>";
             }
@@ -52,12 +58,14 @@ format: $Zeit = date("H:i:s", strtotime($row['Uhrzeit']));
                 echo "<td><b>".$row['Name']."</b><br>".$Zeit."</td><td id='Wartet'>".$row['Wartet']."</td></tr>";
                 if ($i == $mark) {
                     echo "</table>";
-                    echo "<div><form><input type='submit' value='Nächste Station' name='Weiter' class='highlight'></form></div>";
+                    echo "<div><form><input type='submit' value='Nächste Station' name='Weiter' id='weiter'></div>";
+                    echo "<div><input type='submit' value='Letzte Station' name='zurück' id='zurück'></form></div>";
                     echo "<table id='myTable'>";
                 }
             }
             $i++;
         }
+
         
     ?>
     </div>
