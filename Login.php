@@ -46,6 +46,7 @@
             if (!is_null(value: $ID_1) && !is_null($Linie_1)) {
                 $_SESSION['Login'] = true;
                 $_SESSION['Linie'] = $Linie;
+                $_SESSION['Name'] = $ID_1;
                 header("Location: Anzeige.php");
                 exit(); // Wichtig: Beenden Sie das Skript hier
             }
@@ -60,7 +61,7 @@
    
     <footer class="footer">
         <form action="./Kundenformular.php" method="post" class="login-form">
-            <Button type="submit" name="Login" formaction="./Kundenformular.php">Busfahrer Login</Button>
+            <Button type="submit" name="Login" formaction="./Kundenformular.php">Zurück zur Startseite</Button>
         </form>
     </footer>
 </body>

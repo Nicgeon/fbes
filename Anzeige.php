@@ -38,6 +38,8 @@
             $mark = $_SESSION['mark'];
             $Linie = $_SESSION['Linie'];
 
+            $f_name = $_SESSION['Name'];
+
             $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'fbes', '1234');
 
             $sql = "SELECT stationen.Name, verbindungen.Wartet, verbindungen.Uhrzeit
@@ -52,7 +54,13 @@
             $j = 0;
 
             foreach($PDO->query($sql) as $row) {
-                $letzter = array_key_last($row);
+                if($i == $mark-1 && $i > 1) {
+                    $name = $row['Name'];
+                    $sql_1 = "UPDATE verbindungen AS v SET v.Wartet = 0 
+                            WHERE v.ID_Station = (SELECT s.ID_Station FROM stationen AS s WHERE s.NAME = '$name')";
+                    $stmt = $PDO->prepare($sql_1);
+                    $stmt->execute();
+                }
                 $Zeit = date("H:i:s", strtotime($row['Uhrzeit']));
                 if($i == $mark) {
                     echo "<tr id='$i' class='highlight'>";
@@ -68,14 +76,13 @@
             }
 
             if($j < 1) {
-                echo "<tr><td><h1>Du haben fertig</h1</td></tr>";
-                echo '<form action="./Login.php" method="post" class="login-form">
-                        <Button type="submit" name="Login" formaction="./Login.php">Zurück zum Login</Button>
-                    </form>';
-                    die();
+                echo "</table>";
+                echo "<center><h1>Du haben fertig</h1>";
+                echo "<form action='./Login.php' method='post'>
+                        <Button type='submit' name='Login' formaction='./Login.php' class='navi'>Zurück zum Login</Button>
+                    </form><center>";
+                die();
             }
-
-            
         ?>
         </table>
     </div>
@@ -91,6 +98,9 @@
         <form action="./Login.php" method="post" class="login-form">
             <Button type="submit" name="Login" formaction="./Login.php">Busfahrer Login</Button>
         </form>
+        <?php 
+        echo "<center>Willkommen $f_name</center>"; 
+        ?>
     </footer>
 </body>
 </html>
