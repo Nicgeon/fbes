@@ -34,6 +34,7 @@
 
     <div>
         <table id="myTable">
+            <tr><th>Station</th><th>Personen</th></tr>
         <?php 
             $mark = $_SESSION['mark'];
             $Linie = $_SESSION['Linie'];
@@ -98,8 +99,10 @@
         <form action="./Login.php" method="post" class="login-form">
             <Button type="submit" name="Login" formaction="./Login.php">Busfahrer Login</Button>
         </form>
-        <?php 
-        echo "<center>Willkommen $f_name</center>"; 
+        <?php
+            if($mark == 0) {
+                echo "<center><h2>Willkommen $f_name</h2></center>";
+            }
         ?>
     </footer>
 </body>

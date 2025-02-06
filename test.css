@@ -8,6 +8,17 @@ html, body {
   background-color: #000000;
 }
 
+th{
+  padding: 12px;
+  text-align: left;
+  border-radius: 10px;
+}
+
+th {
+  background-color: #022136;
+  color: white;
+}
+
 tr.highlight {
   /*position:fixed;
   top: 10px;*/
