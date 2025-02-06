@@ -78,7 +78,7 @@
 
             if($j < 1) {
                 echo "</table>";
-                echo "<center><h1>Du haben fertig</h1>";
+                echo "<center><h1>Fahrt Abgeschlossen</h1>";
                 echo "<form action='./Login.php' method='post'>
                         <Button type='submit' name='Login' formaction='./Login.php' class='navi'>Zurück zum Login</Button>
                     </form><center>";
