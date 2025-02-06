@@ -14,6 +14,3 @@ Because i am a rookie when it comes to building websites, this is probaply a hor
 The project ist also not thought through, so i am unaware how realistic the actual usage of this Proejct is.
 
 At the moment its probaply a saftey nightmare, but for the demosntaration that is eougth.
-
-
-_PS; i cannot recommend doing a ITA, its a waste of time_
