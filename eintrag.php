@@ -55,11 +55,13 @@
     echo "<form action='./zurücknehmen.php' method='post' class='button-container'>
         <input type='hidden' name='von' value='" . htmlspecialchars($von) . "'>
         <div class='button-group'>
-            <button type='submit' name='zurück' formaction='./Kundenformular.php'>Fertig</button>
-            <input type='submit' name='zurücksetzen' value='Zurücknehmen'>
-        </div>
-    </form>";
+            <button type='submit' name='zurück' formaction='./Kundenformular.php'>Fertig</button>";
+            if ($l_bis == $l_von) {
+                echo "<input type='submit' name='zurücksetzen' value='Zurücknehmen'>";
+            }
     ?>
+    </div>
+    </form>
 
 </body>
 </html>
