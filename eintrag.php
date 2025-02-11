@@ -54,6 +54,7 @@
     # Zurücksetzen Button
     echo "<form action='./zurücknehmen.php' method='post' class='button-container'>
         <input type='hidden' name='von' value='" . htmlspecialchars($von) . "'>
+        <input type='hidden' name='l_von' value='" . htmlspecialchars($l_von) . "'>
         <div class='button-group'>
             <button type='submit' name='zurück' formaction='./Kundenformular.php'>Fertig</button>";
             if ($l_bis == $l_von) {

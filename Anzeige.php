@@ -34,8 +34,8 @@
 
     <div>
         <table id="myTable">
-            <tr><th>Station</th><th>Personen</th></tr>
-        <?php 
+            
+        <?php
             $mark = $_SESSION['mark'];
             $Linie = $_SESSION['Linie'];
 
@@ -51,11 +51,11 @@
                     ON stationen.ID_Station = verbindungen.ID_Station
                     ORDER BY verbindungen.Uhrzeit ASC";
             $PDO->prepare($sql);
-            $i = 0;
+            $i = 1;
             $j = 0;
 
             foreach($PDO->query($sql) as $row) {
-                if($i == $mark-1 && $i > 1) {
+                if($i == $mark-1 && $i > 0) {
                     $name = $row['Name'];
                     $sql_1 = "UPDATE verbindungen AS v SET v.Wartet = 0 
                             WHERE v.ID_Station = (SELECT s.ID_Station FROM stationen AS s WHERE s.NAME = '$name')";
