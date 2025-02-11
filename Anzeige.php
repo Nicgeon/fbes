@@ -38,7 +38,6 @@
         <?php
             $mark = $_SESSION['mark'];
             $Linie = $_SESSION['Linie'];
-
             $f_name = $_SESSION['Name'];
 
             $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'fbes', '1234');
@@ -49,6 +48,7 @@
                     ON linie.ID_Linie = verbindungen.ID_linie
                     INNER JOIN stationen
                     ON stationen.ID_Station = verbindungen.ID_Station
+                    WHERE verbindungen.ID_Linie = '$Linie'
                     ORDER BY verbindungen.Uhrzeit ASC";
             $PDO->prepare($sql);
             $i = 1;
