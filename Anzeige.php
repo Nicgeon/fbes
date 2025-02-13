@@ -23,7 +23,7 @@
             $_SESSION['mark']++;
         }
 
-        if (isset($_GET['zurück'])) {
+        if (isset($_GET['Zurück'])) {
             $_SESSION['mark']--;
         }
     ?>
@@ -57,9 +57,12 @@
             foreach($PDO->query($sql) as $row) {
                 if($i == $mark-1 && $i > 0) {
                     $name = $row['Name'];
-                    $sql_1 = "UPDATE verbindungen AS v SET v.Wartet = 0 
-                            WHERE v.ID_Station = (SELECT s.ID_Station FROM stationen AS s WHERE s.NAME = '$name')";
-                    $stmt = $PDO->prepare($sql_1);
+                    $stmt = $PDO->prepare("UPDATE verbindungen AS v 
+                                                    SET v.Wartet = 0 
+                                                    WHERE v.ID_Station = (SELECT s.ID_Station 
+                                                    FROM stationen AS s 
+                                                    WHERE s.NAME = :name)");
+                    $stmt->bindParam(':name', $name, PDO::PARAM_STR);
                     $stmt->execute();
                 }
                 $Zeit = date("H:i:s", strtotime($row['Uhrzeit']));

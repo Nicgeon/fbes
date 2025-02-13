@@ -13,22 +13,26 @@
 
     $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'fbes', '1234');
 
-    $sql_1 = "SELECT v.ID_linie
+    $sql_1 = "SELECT distinct(v.ID_linie)
                 FROM stationen AS s
                 JOIN verbindungen AS v
                 ON v.ID_Station = s.ID_Station
-                WHERE s.NAME = '$von'";
-    $sql_2 = "SELECT v.ID_linie
+                WHERE s.NAME = '$von'
+                ORDER BY v.ID_linie
+                Limit 1";
+    $sql_2 = "SELECT distinct(v.ID_linie)
                 FROM stationen AS s
                 JOIN verbindungen AS v
                 ON v.ID_Station = s.ID_Station
-                WHERE s.NAME = '$bis'";
+                WHERE s.NAME = '$bis'
+                ORDER BY v.ID_linie
+                Limit 1";
     
-    $l_von = 0;
+    $l_von = null;
     foreach($PDO->query($sql_1) as $row){
         $l_von = $row['ID_linie'];
     }
-    $l_bis = 0;
+    $l_bis = null;
     foreach($PDO->query($sql_2) as $row){
         $l_bis = $row['ID_linie'];
     }
@@ -41,16 +45,32 @@
             ON v.ID_Station = s.ID_Station
             WHERE s.NAME = '$von')";
 
-    if($l_bis == $l_von) {
+    if($l_bis == $l_von && !is_null($l_bis) && !is_null($l_von)) {
         $stmt = $PDO->prepare($sql);
         $stmt->execute();
         echo "<nobr><h1>Ihre Eingabe wurde übermittelt</h1><br><br>Sie fahren von <u>".$von."</u> bis <u>".$bis."</u> mit der Linie <b><u>".$l_von."</u></nobr></b><br><br>";
     }
     else {
         echo "<h1>Keine Linie gefunden.</h1><br><br>Aktuell gibt es keine Verbindung von ".$von." bis ".$bis.".<br>wir bitten um Entschuldigung<br><br>";
+        $l_von = null;
     }
 
+    if(!is_null($l_von)) {
+        echo "<center><h2>PDF Ihrer Linie</h2></center>";
+    }
+    ?>
 
+
+    <center>
+    <object 
+    type="application/PDF" 
+    data="http://209.25.141.16:3013/<?php echo $l_von?>.pdf"
+    width="95%"
+    height="450px"
+    ></object>
+    </center>
+
+    <?php
     # Zurücksetzen Button
     echo "<form action='./zurücknehmen.php' method='post' class='button-container'>
         <input type='hidden' name='von' value='" . htmlspecialchars($von) . "'>
