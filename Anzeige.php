@@ -78,7 +78,7 @@
 
             if($j < 1) {
                 echo "</table>";
-                echo "<center><h1>Fahrt Abgeschlossen</h1>";
+                echo "<center><h1>Fahrt abgeschlossen</h1>";
                 echo "<form action='./Login.php' method='post'>
                         <Button type='submit' name='Login' formaction='./Login.php' class='navi'>Zurück zum Login</Button>
                     </form><center>";
@@ -91,7 +91,7 @@
     <footer class="footer">
         <form>
         <center>
-            <input type='submit' value='Letzte Station' name='zurück' class='navi'>
+            <input type='submit' value='Letzte Station' name='Zurück' class='navi'>
 
             <input type='submit' value='Nächste Station' name='Weiter' class='navi'>
         </center>

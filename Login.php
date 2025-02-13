@@ -8,9 +8,9 @@
 </head>
 <body>
     <h1>Fahrer Login</h1><br><br>
-    <h3>Hallo, Melden sie sich an.</h3><br>
+    <h3>Hallo, melden Sie sich an.</h3><br>
     <form>
-        Bitte geben sie ihre Fahrer-ID ein.<br>
+        Bitte geben Sie Ihre Fahrer-ID ein.<br>
         <input type="text" name="ID">
         Linie
         <input type="text" name="Linie"><br>
@@ -51,7 +51,7 @@
                 exit(); // Wichtig: Beenden Sie das Skript hier
             }
             elseif(is_null($ID_1) or is_null($Linie_1)){
-                echo "<center>Logindaten sind falsch, bitte versuchen sie es erneut.</center><br><br>";
+                echo "<center>Logindaten sind falsch, bitte versuchen Sie es erneut.</center><br><br>";
             }
 
         }

@@ -8,8 +8,8 @@
 </head>
 <body>
     <div class="content">
-        <center><h1>Wo möchten sie hin?</h1></center><br>
-        <h3>Bitte Wählen sie Ihre <b>Anfangsstaion</b> sowie ihre <b>Endstation</b> aus.</h3>
+        <center><h1>Wo möchten Sie hin?</h1></center><br>
+        <h3>Bitte wählen sie Ihre <b>Anfangsstation</b> sowie Ihre <b>Endstation</b> aus.</h3>
 
         <form action="./eintrag.php" method="get">
             <select id="Stationen" name="von" >

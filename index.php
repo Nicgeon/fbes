@@ -10,8 +10,7 @@
     <h1>Wenn sie diesen Text lesesn können hat das Programm versagt, bitte laden sie die seite neu.</h1>
     
     <?php
-        header("Location: Kundenformular.php");
-        die;
+        header(header: "Location: Kundenformular.php");
     ?>
 </body>
 </html>

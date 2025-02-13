@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Eintrag Abgeschlossen</title>
+    <title>Eintrag abgeschlossen</title>
 </head>
 <body>
     <?php
@@ -44,10 +44,10 @@
     if($l_bis == $l_von) {
         $stmt = $PDO->prepare($sql);
         $stmt->execute();
-        echo "<nobr><h1>Ihre Eingabe wurde übermittelt</h1><br><br>Sie fahren von <u>".$von."</u> bis <u>".$bis."</u> mit der linie <b><u>".$l_von."</u></nobr></b><br><br>";
+        echo "<nobr><h1>Ihre Eingabe wurde übermittelt</h1><br><br>Sie fahren von <u>".$von."</u> bis <u>".$bis."</u> mit der Linie <b><u>".$l_von."</u></nobr></b><br><br>";
     }
     else {
-        echo "<h1>Keine Linie Gefunden</h1><br><br>Aktuell gibt es keine Verbindung von ".$von." bis ".$bis."<br>wir bitten um entschuldigung<br><br>";
+        echo "<h1>Keine Linie gefunden.</h1><br><br>Aktuell gibt es keine Verbindung von ".$von." bis ".$bis.".<br>wir bitten um Entschuldigung<br><br>";
     }
 
 
