@@ -119,6 +119,7 @@ th {
 
 /* Login-Formular */
 .login-form {
+    flex-direction: row;
     max-width: 300px;
     padding: 20px;
     border-radius: 5px;
@@ -132,7 +133,7 @@ th {
     border: 1px solid #ddd;
     border-radius: 4px;
 }
-
+/*
 .login-form input[type="submit"] {
     width: 100%;
     padding: 10px;
@@ -142,6 +143,7 @@ th {
     border-radius: 4px;
     cursor: pointer;
 }
+*/
 
 .login-form input[type="submit"]:hover {
     background-color: #2980b9;

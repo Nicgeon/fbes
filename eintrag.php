@@ -70,19 +70,19 @@
     ></object>
     </center>
 
+    <footer class='footer'>
+    <form action='./zurücknehmen.php' method='post' class="login-form">
+    
+    <input type="hidden" name="von" value="<?php echo htmlspecialchars($von); ?>">
+    <input type="hidden" name="l_von" value="<?php echo htmlspecialchars($l_von); ?>">
+    <button type="submit" name="zurück" class="login-button" formaction="./Kundenformular.php">Fertig</button>
     <?php
     # Zurücksetzen Button
-    echo "<form action='./zurücknehmen.php' method='post'>
-        <input type='hidden' name='von' value='" . htmlspecialchars($von) . "'>
-        <input type='hidden' name='l_von' value='" . htmlspecialchars($l_von) . "'>
-        <footer class='footer'>
-            <button type='submit' name='zurück' formaction='./Kundenformular.php'>Fertig</button>";
-            if ($l_bis == $l_von) {
-                echo "<input type='submit' name='zurücksetzen' value='Zurücknehmen'>";
-            }
+    if ($l_bis == $l_von) {
+        echo "<input type='submit' name='zurücksetzen' class='login-button' value='Zurücknehmen'>";
+    }
     ?>
-    </footer>
     </form>
-
+    </footer>
 </body>
 </html>
