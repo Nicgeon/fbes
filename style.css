@@ -1,3 +1,4 @@
+/* Grundlegende Stile */
 html, body {
     height: 100%;
     margin: 0;
@@ -11,7 +12,8 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    max-width: 60%;
+    max-width: 1200px; /* Feste Maximalbreite für bessere Lesbarkeit auf großen Bildschirmen */
+    width: 90%; /* Responsive Breite für mobile Geräte */
     margin: 0 auto;
 }
 
@@ -23,20 +25,21 @@ body {
 /* Überschriften */
 h1, h2, h3 {
     color: #ffffff;
+    margin-bottom: 0.5em; /* Konsistenter Abstand unter Überschriften */
 }
 
 h1 {
-    font-size: 3vw;
+    font-size: clamp(24px, 5vw, 48px); /* Responsive Schriftgröße */
     border-bottom: 2px solid #2c3e50;
     padding-bottom: 10px;
 }
 
 h2 {
-    font-size: 2vw;
+    font-size: clamp(20px, 4vw, 36px);
 }
 
 h3 {
-    font-size: 1vw;
+    font-size: clamp(16px, 3vw, 24px);
 }
 
 /* Formulare */
@@ -49,44 +52,43 @@ form {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.219);
 }
 
-input[type="text"], input[type="email"], select {
+input[type="text"], select {
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ddd;
     border-radius: 4px;
+    font-size: 16px; /* Bessere Lesbarkeit auf mobilen Geräten */
 }
 
-.button-container {
-    display: flex; /* Aktiviert Flexbox */
-    justify-content: flex-end; /* Positioniert die Buttons nach rechts */
-    gap: 10px; /* Fügt einen Abstand zwischen den Buttons hinzu */
+.button-container, .button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px; /* Mehr Abstand zu den Formularfeldern */
 }
 
 input[type="submit"], button[type="submit"] {
     background-color: #db4734;
     color: white;
     padding: 10px 30px;
+    margin : 5px 10px;
     border: none;
     border-radius: 20px;
     cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Sanfter Übergang für Hover-Effekt */
 }
 
 input[type="submit"]:hover, button[type="submit"]:hover {
     background-color: #e0b00f;
 }
 
-.button-group {
-    display: flex; /* Aktiviert Flexbox für den Button-Container */
-    justify-content: flex-end; /* Positioniert die Buttons nach rechts */
-    gap: 10px; /* Fügt Abstand zwischen den Buttons hinzu */
-}
-
-
 /* Tabellen */
 table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    overflow-x: auto; /* Ermöglicht horizontales Scrollen auf kleinen Bildschirmen */
 }
 
 th, td {
@@ -102,34 +104,65 @@ th {
 
 /* Footer */
 .footer {
+    display: flex;
+    justify-content: start;
+    align-items: start;
     position: fixed;
     left: 0;
     bottom: 0;
-    flex-shrink: 0;
-    background-color: #050031;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.219);
     width: 100%;
-  }
+    background-color: #050031;
+    padding: 10px 20px;
+    box-shadow: 0 -2px 10px rgba(255, 255, 255, 0.219);
+    text-align: center; /* Zentriert den Inhalt im Footer */
+}
 
+/* Login-Formular */
 .login-form {
-    align-items:start !important;
-    background-color: transparent !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-    margin-left: 1em;
+    max-width: 300px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 
 .login-form input[type="submit"] {
-    background-color: #db4734;
+    width: 100%;
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .login-form input[type="submit"]:hover {
-    background-color: #e0b00f;
+    background-color: #2980b9;
 }
 
 
 #lol {
     font-weight: bold;
+}
+
+/* Media Queries für bessere Responsivität */
+@media (max-width: 768px) {
+    body {
+        width: 95%; /* Mehr Breite auf kleineren Bildschirmen */
+    }
+
+    .button-container, .button-group {
+        flex-direction: column; /* Buttons untereinander auf kleinen Bildschirmen */
+    }
+
+    input[type="submit"], button[type="submit"] {
+        width: 100%; /* Volle Breite für Buttons auf kleinen Bildschirmen */
+    }
 }
