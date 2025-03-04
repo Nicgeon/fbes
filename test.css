@@ -1,3 +1,4 @@
+/* Grundlegende Stile */
 html, body {
   height: 100%;
   margin: 0;
@@ -8,21 +9,30 @@ html, body {
   background-color: #000000;
 }
 
+/* Responsive Überschriften */
 h1 {
-  font-size: 3vw;
+  font-size: clamp(24px, 3vw, 36px);
   border-bottom: 2px solid #2c3e50;
   padding-bottom: 10px;
+  text-align: center;
 }
 
 h2 {
-  font-size: 2vw;
+  font-size: clamp(20px, 2vw, 28px);
 }
 
 h3 {
-  font-size: 1vw;
+  font-size: clamp(16px, 1vw, 20px);
 }
 
-th{
+/* Tabellenstile */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1em;
+}
+
+th, td {
   padding: 12px;
   text-align: left;
   border-radius: 10px;
@@ -34,55 +44,80 @@ th {
 }
 
 tr.highlight {
-  /*position:fixed;
-  top: 10px;*/
-  text-align: left;
   color: #db4734;
-  font-size: 3em;
+  font-size: 2em; /* Vergrößert die Schrift */
   background-color: #050031;
-  padding: 20px 20px;
+  padding: 20px;
 }
 
-.navi {
-  font-size: 3em !important; 
-  border-radius: 60px !important;
-  padding: 10px 30px !important;
-  margin-right: 100px !important;
-  margin-left: 100px !important;
-}
 
+/* Spezifische Stile */
 #myTable {
   border: 10px;
   width: 100%;
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 #Wartet {
   width: 100px;
   color: azure;
-  padding: 20px;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding: 20px 50px;
   text-align: center;
 }
 
+/* Footer und Buttons */
 .footer {
   position: fixed;
   bottom: 0;
-  flex-shrink: 0;
-  background-color: #050031;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.219);
+  left: 0;
   width: 100%;
+  background-color: #050031;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.219);
+  flex-direction: row-reverse; /* Kehrt die Reihenfolge der Elemente um */
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
 }
 
 input[type="submit"], button[type="submit"] {
   background-color: #db4734;
   color: white;
-  padding: 10px 30px;
+  padding: 10px 20px;
   border: none;
   border-radius: 20px;
   cursor: pointer;
-  text-align: right;
+  font-size: 1em;
+  margin: 5px;
+}
+
+.navi {
+  font-size: 2.5em !important;
+  border-radius: 30px !important;
+  padding: 10px 20px !important;
+  margin: 5px 10px !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navi {
+    font-size: 1em;
+    padding: 8px 15px;
+    margin: 5px;
+  }
+
+  #myTable {
+    font-size: 1em;
+  }
+
+  #Wartet {
+    padding: 10px;
+  }
+
+  .footer {
+    padding: 5px;
+  }
+
+  tr.highlight {
+    font-size: 1.3em; /* Etwas kleiner auf mobilen Geräten, aber immer noch hervorgehoben */
+  }
 }

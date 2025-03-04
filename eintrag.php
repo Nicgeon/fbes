@@ -64,7 +64,7 @@
     <center>
     <object 
     type="application/PDF" 
-    data="http://209.25.141.16:3013/<?php echo $l_von?>.pdf"
+    data="http://192.168.0.225/<?php echo $l_von?>.pdf"
     width="95%"
     height="450px"
     ></object>
@@ -72,16 +72,16 @@
 
     <?php
     # Zurücksetzen Button
-    echo "<form action='./zurücknehmen.php' method='post' class='button-container'>
+    echo "<form action='./zurücknehmen.php' method='post'>
         <input type='hidden' name='von' value='" . htmlspecialchars($von) . "'>
         <input type='hidden' name='l_von' value='" . htmlspecialchars($l_von) . "'>
-        <div class='button-group'>
+        <footer class='footer'>
             <button type='submit' name='zurück' formaction='./Kundenformular.php'>Fertig</button>";
             if ($l_bis == $l_von) {
                 echo "<input type='submit' name='zurücksetzen' value='Zurücknehmen'>";
             }
     ?>
-    </div>
+    </footer>
     </form>
 
 </body>

@@ -57,12 +57,12 @@
         }
     ?>
             <input type="submit" name="submit" value="Einloggen"><br>
+    <div>
+        <footer class="footer">
+            <form action="./Kundenformular.php" method="post" class="login-form">
+                <Button type="submit" name="Login" formaction="./Kundenformular.php" class="login-button">Zurück zur Startseite</Button>
             </form>
-   
-    <footer class="footer">
-        <form action="./Kundenformular.php" method="post" class="login-form">
-            <Button type="submit" name="Login" formaction="./Kundenformular.php">Zurück zur Startseite</Button>
-        </form>
-    </footer>
+        </footer>
+    </div>
 </body>
 </html>
