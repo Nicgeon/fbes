@@ -15,9 +15,8 @@
             <select id="Stationen" name="von" >
                 <?php
                     $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'fbes', '1234');
-                    $sql = "SELECT verbindungen.ID_linie, stationen.NAME
-                            FROM stationen INNER JOIN verbindungen
-                            ON stationen.ID_Station = verbindungen.ID_Station
+                    $sql = "SELECT stationen.NAME
+                            FROM stationen
                             ORDER BY stationen.NAME";
                     
                     foreach($PDO->query($sql) as $row){
@@ -29,9 +28,8 @@
             <select id="Stationen" name="bis">
                 <?php
                     $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'fbes', '1234');
-                    $sql = "SELECT verbindungen.ID_linie, stationen.NAME
-                            FROM stationen INNER JOIN verbindungen
-                            ON stationen.ID_Station = verbindungen.ID_Station
+                    $sql = "SELECT stationen.NAME
+                            FROM stationen
                             ORDER BY stationen.NAME";
                     
                     foreach($PDO->query($sql) as $row){

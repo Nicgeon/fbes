@@ -57,32 +57,35 @@
 
     if(!is_null($l_von)) {
         echo "<center><h2>PDF Ihrer Linie</h2></center>";
-    }
-    ?>
-
+        ?>
 
     <center>
-    <object 
-    type="application/PDF" 
-    data="http://192.168.0.225/<?php echo $l_von?>.pdf"
-    width="95%"
-    height="450px"
-    ></object>
+        <object 
+        type="application/PDF" 
+        data="./res/pdf/<?php echo $l_von?>.pdf"
+        width="95%"
+        height="450px"
+        ></object>
+        <i><br>Die PDF stammt von dem jeweiligen Busunternehmen, ich übernehme keine garantie für richtigkeit.</i>
     </center>
 
     <?php
-    # Zurücksetzen Button
-    echo "<form action='./zurücknehmen.php' method='post'>
-        <input type='hidden' name='von' value='" . htmlspecialchars($von) . "'>
-        <input type='hidden' name='l_von' value='" . htmlspecialchars($l_von) . "'>
-        <footer class='footer'>
-            <button type='submit' name='zurück' formaction='./Kundenformular.php'>Fertig</button>";
-            if ($l_bis == $l_von) {
-                echo "<input type='submit' name='zurücksetzen' value='Zurücknehmen'>";
-            }
+    }
     ?>
-    </footer>
-    </form>
 
+    <footer class='footer'>
+    <form action='./zurücknehmen.php' method='post' class="login-form">
+    
+    <input type="hidden" name="von" value="<?php echo htmlspecialchars($von); ?>">
+    <input type="hidden" name="l_von" value="<?php echo htmlspecialchars($l_von); ?>">
+    <button type="submit" name="zurück" class="login-button" formaction="./Kundenformular.php">Fertig</button>
+    <?php
+    # Zurücksetzen Button
+    if ($l_bis == $l_von) {
+        echo "<input type='submit' name='zurücksetzen' class='login-button' value='Zurücknehmen'>";
+    }
+    ?>
+    </form>
+    </footer>
 </body>
 </html>
