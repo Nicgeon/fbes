@@ -57,18 +57,21 @@
 
     if(!is_null($l_von)) {
         echo "<center><h2>PDF Ihrer Linie</h2></center>";
-    }
-    ?>
-
+        ?>
 
     <center>
-    <object 
-    type="application/PDF" 
-    data="http://192.168.0.225/<?php echo $l_von?>.pdf"
-    width="95%"
-    height="450px"
-    ></object>
+        <object 
+        type="application/PDF" 
+        data="./res/pdf/<?php echo $l_von?>.pdf"
+        width="95%"
+        height="450px"
+        ></object>
+        <i><br>Die PDF stammt von dem jeweiligen Busunternehmen, ich übernehme keine garantie für richtigkeit.</i>
     </center>
+
+    <?php
+    }
+    ?>
 
     <footer class='footer'>
     <form action='./zurücknehmen.php' method='post' class="login-form">
