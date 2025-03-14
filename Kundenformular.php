@@ -16,7 +16,9 @@
                 <?php
                     $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'fbes', '1234');
                     $sql = "SELECT stationen.NAME
-                            FROM stationen
+                            FROM stationen, verbindungen
+                            WHERE stationen.ID_Station = verbindungen.ID_Station
+                            GROUP BY stationen.ID_Station
                             ORDER BY stationen.NAME";
                     
                     foreach($PDO->query($sql) as $row){
@@ -29,8 +31,10 @@
                 <?php
                     $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'fbes', '1234');
                     $sql = "SELECT stationen.NAME
-                            FROM stationen
-                            ORDER BY stationen.NAME";
+                    FROM stationen, verbindungen
+                    WHERE stationen.ID_Station = verbindungen.ID_Station
+                    GROUP BY stationen.ID_Station
+                    ORDER BY stationen.NAME";
                     
                     foreach($PDO->query($sql) as $row){
                         echo "<option value='".$row['NAME']."'>".$row['NAME']."</option>";
