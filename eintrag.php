@@ -48,7 +48,7 @@
     if($l_bis == $l_von && !is_null($l_bis) && !is_null($l_von)) {
         $stmt = $PDO->prepare($sql);
         $stmt->execute();
-        echo "<nobr><h1>Ihre Eingabe wurde übermittelt</h1><br><br>Sie fahren von <u>".$von."</u> bis <u>".$bis."</u> mit der Linie <b><u>".$l_von."</u></nobr></b><br><br>";
+        echo "<h1>Ihre Eingabe wurde übermittelt</h1><br><br><nobr>Sie fahren von <u>".$von."</u> bis <u>".$bis."</u></nobr> mit der Linie <b><u>".$l_von."</u></b><br><br>";
     }
     else {
         echo "<h1>Keine Linie gefunden.</h1><br><br>Aktuell gibt es keine Verbindung von ".$von." bis ".$bis.".<br>wir bitten um Entschuldigung<br><br>";
@@ -69,6 +69,9 @@
         <i><br>Die PDF stammt von dem jeweiligen Busunternehmen, ich übernehme keine garantie für richtigkeit.</i>
     </center>
 
+    <div style="padding-bottom: 5%;">
+
+    </div>
     <?php
     }
     ?>
