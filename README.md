@@ -11,6 +11,6 @@ This system is supposted to be an idea to sovle the isssue, by makign the Bus dr
 ### Sidenote
 Because i am a rookie when it comes to building websites, this is probaply a horrible project based out of an experts pserpective.
 
-The project ist also not thought through, so i am unaware how realistic the actual usage of this Proejct is.
+The project ist also not thought through, so i am unaware how realistic the actual usage of this Project would be.
 
-At the moment its probaply a saftey nightmare, but for the demosntaration that is eougth.
+At the moment its probaply a saftey nightmare, but for the demonstration it is eougth.
