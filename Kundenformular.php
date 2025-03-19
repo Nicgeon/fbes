@@ -12,38 +12,28 @@
         <h3>Bitte wählen sie Ihre <b>Anfangsstation</b> sowie Ihre <b>Endstation</b> aus.</h3>
 
         <form action="./eintrag.php" method="get">
-            <select id="Stationen" name="von" >
-                <?php
-                    $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'fbes', '1234');
-                    $sql = "SELECT stationen.NAME
-                            FROM stationen, verbindungen
-                            WHERE stationen.ID_Station = verbindungen.ID_Station
-                            GROUP BY stationen.ID_Station
-                            ORDER BY stationen.NAME";
-                    
-                    foreach($PDO->query($sql) as $row){
-                        echo "<option value='".$row['NAME']."'>".$row['NAME']."</option>";
-                    }
-                ?>
-            </select>
+            <input type="text" list="Stationen" name="von" placeholder="Startstation">
             bis
-            <select id="Stationen" name="bis">
-                <?php
-                    $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'fbes', '1234');
-                    $sql = "SELECT stationen.NAME
-                    FROM stationen, verbindungen
-                    WHERE stationen.ID_Station = verbindungen.ID_Station
-                    GROUP BY stationen.ID_Station
-                    ORDER BY stationen.NAME";
-                    
-                    foreach($PDO->query($sql) as $row){
-                        echo "<option value='".$row['NAME']."'>".$row['NAME']."</option>";
-                    }
-                ?>
-            </select>
+            <input type="text" list="Stationen" name="bis" placeholder="Endstation">
             <br><br><br>
             <input type="submit" name="Kundendaten" value="Weiter">
         </from>
+    
+        <datalist id="Stationen">
+            <?php
+                $PDO = new PDO('mysql:host=localhost; dbname=fbes;charset=utf8', 'fbes', '1234');
+                $sql = "SELECT stationen.NAME
+                        FROM stationen, verbindungen
+                        WHERE stationen.ID_Station = verbindungen.ID_Station
+                        GROUP BY stationen.ID_Station
+                        ORDER BY stationen.NAME";
+                
+                foreach($PDO->query($sql) as $row){
+                    echo "<option value='".$row['NAME']."'>";
+                }
+            ?>
+        </datalist>
+
     </div>
     <div>
     <footer class="footer">
