@@ -69,7 +69,7 @@
         <i><br>Die PDF stammt von dem jeweiligen Busunternehmen, ich übernehme keine garantie für richtigkeit.</i>
     </center>
 
-    <div style="padding-bottom: 5%;">
+    <div style="padding-bottom: 20%;">
 
     </div>
     <?php
