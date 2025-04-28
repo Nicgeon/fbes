@@ -37,17 +37,23 @@
         $l_bis = $row['ID_linie'];
     }
 
-    $sql = "UPDATE verbindungen AS v
+    $sql = "UPDATE verbindungen
             SET Wartet = Wartet + 1
-            WHERE v.ID_station = (SELECT s.ID_Station
-            FROM stationen AS s
-            JOIN verbindungen AS v
-            ON v.ID_Station = s.ID_Station
-            WHERE s.NAME = '$von')";
+            WHERE verbindungen.ID_linie = '$l_von'
+            AND verbindungen.ID_linie = (
+				SELECT s.ID_Station
+				FROM stationen AS s
+				WHERE s.NAME = '$von')";
 
     if($l_bis == $l_von && !is_null($l_bis) && !is_null($l_von)) {
         $stmt = $PDO->prepare($sql);
+        try {
         $stmt->execute();
+        }
+        catch(PDOException $e) {
+            echo "<h1>Fehler</h1><br><br>Es ist ein Fehler aufgetreten, bitte versuchen Sie es erneut.";
+            echo $e;
+        }
         echo "<h1>Ihre Eingabe wurde übermittelt</h1><br><br><nobr>Sie fahren von <u>".$von."</u> bis <u>".$bis."</u></nobr> mit der Linie <b><u>".$l_von."</u></b><br><br>";
     }
     else {
